@@ -1,0 +1,12 @@
+apiVersion: v1 
+kind: Pod 
+metadata:
+  name: dotnet-mvc 
+  labels:
+    app: dotnet-mvc 
+spec:
+  containers:
+    - image: patelsapna/sentiment-analysis-webmvc
+      name: dotnet-mvc
+      ports:
+        - containerPort: 80

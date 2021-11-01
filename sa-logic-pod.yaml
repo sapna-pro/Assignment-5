@@ -1,0 +1,12 @@
+apiVersion: v1 
+kind: Pod 
+metadata:
+  name: sa-logic 
+  labels:
+    app: sa-logic 
+spec:
+  containers:
+    - image: patelsapna/sentiment-analysis-logic:minikube
+      name: sa-logic
+      ports:
+        - containerPort: 80

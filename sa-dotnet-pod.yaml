@@ -1,0 +1,12 @@
+apiVersion: v1 
+kind: Pod 
+metadata:
+  name: sa-dotnet 
+  labels:
+    app: sa-dotnet 
+spec:
+  containers:
+    - image: patelsapna/rockstar-dotnet-api
+      name: sa-dotnet
+      ports:
+        - containerPort: 80

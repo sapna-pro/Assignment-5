@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sa-dotnet 
+spec:
+  replicas: 2
+  selector: 
+    matchLabels:
+      app: sa-dotnet
+  minReadySeconds: 15 
+  strategy:
+    type: RollingUpdate 
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1 
+  template:
+    metadata: 
+      labels:
+        app: sa-dotnet 
+    spec:
+      containers:
+        - image: patelsapna/rockstar-dotnet-api
+          imagePullPolicy: Always 
+          name: sa-dotnet
+          ports:
+            - containerPort: 5001

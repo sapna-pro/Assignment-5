@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dotnet-mvc 
+spec:
+  replicas: 2
+  selector: 
+    matchLabels:
+      app: dotnet-mvc
+  minReadySeconds: 15 
+  strategy:
+    type: RollingUpdate 
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1 
+  template:
+    metadata: 
+      labels:
+        app: dotnet-mvc
+    spec:
+      containers:
+        - image: patelsapna/sentiment-analysis-webmvc
+          imagePullPolicy: Always 
+          name: dotnet-mvc
+          ports:
+            - containerPort: 5050

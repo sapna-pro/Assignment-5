@@ -1,0 +1,12 @@
+apiVersion: v1 
+kind: Pod 
+metadata:
+  name: sa-webapp 
+  labels:
+    app: sa-webapp 
+spec:
+  containers:
+    - image: patelsapna/sentiment-analysis-webapp:minikube
+      name: sa-webapp 
+      ports:
+        - containerPort: 80
